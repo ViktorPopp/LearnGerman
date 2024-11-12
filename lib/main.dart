@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dart:math';  // Import for tilfældige tal
+import 'dart:math';
+import 'phrases.dart';
 
 void main() => runApp(const MyApp());
 
@@ -26,13 +27,6 @@ class TranslationScreen extends StatefulWidget {
 }
 
 class _TranslationScreenState extends State<TranslationScreen> {
-  // Define a list of German phrases and their Danish translations
-  final List<Map<String, String>> phrases = [
-    {'german': 'Wie geht es dir?', 'danish': 'Hvordan har du det?'},
-    {'german': 'Guten Morgen', 'danish': 'Godmorgen'},
-    {'german': 'Danke schön', 'danish': 'Mange tak'},
-  ];
-
   int currentPhraseIndex = 0;
   TextEditingController _controller = TextEditingController();
   String feedback = '';
@@ -40,13 +34,12 @@ class _TranslationScreenState extends State<TranslationScreen> {
   @override
   void initState() {
     super.initState();
-    _setRandomPhrase();  // Sæt tilfældig sætning ved opstart
+    _setRandomPhrase();
   }
 
-  // Funktion til at vælge en tilfældig sætning
   void _setRandomPhrase() {
     final random = Random();
-    currentPhraseIndex = random.nextInt(phrases.length);  // Vælg et tilfældigt index
+    currentPhraseIndex = random.nextInt(phrases.length);
   }
 
   void checkAnswer() {
