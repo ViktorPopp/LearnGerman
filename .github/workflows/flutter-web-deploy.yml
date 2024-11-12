@@ -1,4 +1,4 @@
-name: Deploy Flutter Web to GitHub Pages
+name: Deploy Flutter App to GitHub Pages
 
 on:
   push:
@@ -6,12 +6,10 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-
-    - name: Check out repository
+    - name: Checkout repository
       uses: actions/checkout@v3
 
     - name: Set up Flutter
@@ -20,16 +18,13 @@ jobs:
         flutter-version: '3.24.4'
 
     - name: Install dependencies
-      run: |
-        flutter pub get
+      run: flutter pub get
 
     - name: Build Flutter Web
-      run: |
-        flutter build web --release
+      run: flutter build web --release
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        branch: gh-pages
         folder: build/web
         token: ${{ secrets.GITHUB_TOKEN }}
