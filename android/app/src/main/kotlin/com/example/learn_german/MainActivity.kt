@@ -1,4 +1,4 @@
-package com.example.deutch_training
+package com.example.learn_german
 
 import io.flutter.embedding.android.FlutterActivity
 

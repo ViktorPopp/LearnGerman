@@ -1,6 +1,6 @@
 {
-    "name": "deutch_training",
-    "short_name": "deutch_training",
+    "name": "learn_german",
+    "short_name": "learn_german",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
