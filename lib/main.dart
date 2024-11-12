@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() => runApp(const MyApp());
 
@@ -32,11 +33,27 @@ class _TranslationScreenState extends State<TranslationScreen> {
     {'german': 'Danke schön', 'danish': 'Mange tak'},
   ];
 
+  // Shuffle the phrases list
+  void shufflePhrases() {
+    var random = Random();
+    for (var i = phrases.length - 1; i > 0; i--) {
+      var j = random.nextInt(i + 1);
+      var temp = phrases[i];
+      phrases[i] = phrases[j];
+      phrases[j] = temp;
+    }
+  }
+
   int currentPhraseIndex = 0;
   TextEditingController _controller = TextEditingController();
   String feedback = '';
 
   void checkAnswer() {
+    // Shuffle the phrases list before starting the game
+    if (currentPhraseIndex == 0) {
+      shufflePhrases();
+    }
+
     final userAnswer = _controller.text.trim();
     final correctAnswer = phrases[currentPhraseIndex]['danish']!;
 
