@@ -3,7 +3,10 @@ import 'dart:math';
 import 'phrases.dart';
 import 'pages/TranslationScreen.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  await Firebase.initializeApp();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
