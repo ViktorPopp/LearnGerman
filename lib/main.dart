@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';  // Import for tilfældige tal
 
 void main() => runApp(const MyApp());
 
@@ -35,6 +36,18 @@ class _TranslationScreenState extends State<TranslationScreen> {
   int currentPhraseIndex = 0;
   TextEditingController _controller = TextEditingController();
   String feedback = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _setRandomPhrase();  // Sæt tilfældig sætning ved opstart
+  }
+
+  // Funktion til at vælge en tilfældig sætning
+  void _setRandomPhrase() {
+    final random = Random();
+    currentPhraseIndex = random.nextInt(phrases.length);  // Vælg et tilfældigt index
+  }
 
   void checkAnswer() {
     final userAnswer = _controller.text.trim();
