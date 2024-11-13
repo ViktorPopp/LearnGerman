@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'pages/TranslationScreen.dart';
 
 void main() async {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Translation App',
+      title: 'Tysk Nøglen',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

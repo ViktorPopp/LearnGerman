@@ -31,7 +31,7 @@ class _TranslationScreenState extends State<TranslationScreen> {
 
     setState(() {
       if (userAnswer.toLowerCase() == correctAnswer.toLowerCase()) {
-        feedback = 'Correct! Well done!';
+        feedback = 'Korrekt!';
         // Move to next phrase after a short delay
         Future.delayed(const Duration(seconds: 1), () {
           setState(() {
@@ -41,7 +41,7 @@ class _TranslationScreenState extends State<TranslationScreen> {
           });
         });
       } else {
-        feedback = 'Oops! Try again.';
+        feedback = 'Oops! Prøv igen';
       }
     });
   }
@@ -52,7 +52,7 @@ class _TranslationScreenState extends State<TranslationScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Translation App'),
+        title: const Text('Oversæt hverdagssætninger'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -74,7 +74,7 @@ class _TranslationScreenState extends State<TranslationScreen> {
             TextField(
               controller: _controller,
               decoration: const InputDecoration(
-                labelText: 'Type the Danish translation',
+                labelText: 'Skriv dansk oversættelse',
                 border: OutlineInputBorder(),
               ),
             ),
@@ -84,7 +84,7 @@ class _TranslationScreenState extends State<TranslationScreen> {
             Text(
               feedback,
               style: TextStyle(
-                color: feedback == 'Correct! Well done!' ? Colors.green : Colors.red,
+                color: feedback == 'Korrekt!' ? Colors.green : Colors.red,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -94,7 +94,7 @@ class _TranslationScreenState extends State<TranslationScreen> {
             // Submit button
             ElevatedButton(
               onPressed: checkAnswer,
-              child: const Text('Check Answer'),
+              child: const Text('Check svar'),
             ),
           ],
         ),
